@@ -7,7 +7,6 @@ public class Main {
 
     static int N, M;
     static Map<String, Integer> map;
-    static List<Integer> list;
 
     public static void main(String[] args) throws IOException {
 
@@ -17,7 +16,6 @@ public class Main {
         N = Integer.parseInt(br.readLine());
         StringTokenizer st = new StringTokenizer(br.readLine());
         map = new HashMap<>();
-        list = new ArrayList<>();
 
         for (int i = 0; i < N; i++) {
             String s = st.nextToken();
@@ -32,10 +30,9 @@ public class Main {
         for (int i = 0; i < M; i++) {
             String s = st.nextToken();
 
-            list.add(map.getOrDefault(s, 0));
+            if (map.containsKey(s)) sb.append(map.get(s)).append(" ");
+            else sb.append(0).append(" ");
         }
-
-        list.forEach(s -> sb.append(s).append(" "));
 
         System.out.println(sb);
 
