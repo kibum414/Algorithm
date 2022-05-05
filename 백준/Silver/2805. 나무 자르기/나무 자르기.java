@@ -23,7 +23,8 @@ public class Main {
 
         for (int i = 0; i < N; i++) {
             trees[i] = Integer.parseInt(st.nextToken());
-            max = Math.max(max, trees[i]);
+
+            if (max < trees[i]) max = trees[i];
         }
 
         while (min < max) {
