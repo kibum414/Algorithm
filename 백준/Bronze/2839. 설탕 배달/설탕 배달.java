@@ -4,25 +4,18 @@ import java.io.InputStreamReader;
 
 public class Main {
 
-    static int N, cnt;
+    static int N;
 
     public static void main(String[] args) throws IOException {
 
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
         N = Integer.parseInt(br.readLine());
-        cnt = Integer.MAX_VALUE;
-        int quotientFive = N / 5;
 
-        for (int i = 0; i <= quotientFive; i++) {
-            int n = N - i * 5;
-
-            if (n % 3 == 0) cnt = Math.min(cnt, i + n / 3);
-        }
-
-        if (cnt == Integer.MAX_VALUE) cnt = -1;
-
-        System.out.println(cnt);
+        if (N == 4 || N == 7) System.out.println(-1);
+		else if (N % 5 == 0) System.out.println(N / 5);
+		else if (N % 5 == 1 || N % 5 == 3) System.out.println((N / 5) + 1);
+		else if (N % 5 == 2 || N % 5 == 4) System.out.println((N / 5) + 2);
 
     }
 
