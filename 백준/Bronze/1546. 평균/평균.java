@@ -5,8 +5,7 @@ import java.util.StringTokenizer;
 
 public class Main {
 
-    static int N, max;
-    static int[] scores;
+    static int N;
 
     public static void main(String[] args) throws IOException {
 
@@ -14,24 +13,19 @@ public class Main {
 
         N = Integer.parseInt(br.readLine());
         StringTokenizer st = new StringTokenizer(br.readLine());
-        scores = new int[N];
-        max = Integer.MIN_VALUE;
+
+        int max = Integer.MIN_VALUE;
+        double sum = 0;
 
         for (int i = 0; i < N; i++) {
             int score = Integer.parseInt(st.nextToken());
 
-            scores[i] = score;
-
             if (max < score) max = score;
+
+            sum += score;
         }
 
-        double sum = 0;
-
-        for (int i = 0; i < N; i++) {
-            sum += scores[i] / (double) max * 100;
-        }
-
-        System.out.println(sum / N);
+        System.out.println((sum / max * 100) / N);
 
     }
 
