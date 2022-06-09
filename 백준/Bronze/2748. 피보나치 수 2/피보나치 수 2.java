@@ -12,17 +12,15 @@ public class Main {
 
         N = Integer.parseInt(br.readLine());
 
-        long n1 = 0;
-        long n2 = 1;
-        long sum = 1;
+        long[] dp = new long[N + 1];
 
-        for (int i = 1; i < N; i++) {
-            sum = n1 + n2;
-            n1 = n2;
-            n2 = sum;
+        dp[1] = 1;
+
+        for (int i = 2; i <= N; i++) {
+            dp[i] = dp[i - 1] + dp[i - 2];
         }
 
-        System.out.println(sum);
+        System.out.println(dp[N]);
 
     }
 
