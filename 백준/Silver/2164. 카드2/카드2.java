@@ -1,32 +1,36 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.LinkedList;
-import java.util.Queue;
 
 public class Main {
 
     static int N;
-    static Queue<Integer> q;
+    static int[] q;
 
     public static void main(String[] args) throws IOException {
 
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
         N = Integer.parseInt(br.readLine());
-        q = new LinkedList<>();
+        q = new int[2 * N];
 
         for (int i = 1; i <= N; i++) {
-            q.offer(i);
+            q[i] = i;
         }
 
-        while (q.size() > 1) {
-            q.poll();
+        int first = 1;
+        int last = N;
 
-            q.offer(q.poll());
+        while (N-- > 1) {
+            first++;
+
+            q[last + 1] = q[first];
+
+            first++;
+            last++;
         }
 
-        System.out.println(q.poll());
+        System.out.println(q[first]);
 
     }
 
