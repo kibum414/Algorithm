@@ -7,7 +7,7 @@ public class Main {
 
     static int N;
     static int[][] map;
-    static int[] count;
+    static int[] cnt = new int[3];
 
     public static void main(String[] args) throws IOException {
 
@@ -17,7 +17,6 @@ public class Main {
 
         N = Integer.parseInt(br.readLine());
         map = new int[N][N];
-        count = new int[3];
 
         for (int i = 0; i < N; i++) {
             st = new StringTokenizer(br.readLine());
@@ -30,7 +29,7 @@ public class Main {
         divide(0, 0, N);
 
         for (int i = 0; i < 3; i++) {
-            sb.append(count[i]).append("\n");
+            sb.append(cnt[i]).append("\n");
         }
 
         System.out.println(sb);
@@ -39,9 +38,8 @@ public class Main {
 
     private static void divide(int row, int col, int n) {
 
-        if (check(row, col, n)) {
-            count[map[row][col] + 1]++;
-        } else {
+        if (check(row, col, n)) cnt[map[row][col] + 1]++;
+        else {
             int s = n / 3;
 
             for (int i = 0; i < 3; i++) {
@@ -55,11 +53,11 @@ public class Main {
 
     private static boolean check(int row, int col, int n) {
 
-        int num = map[row][col];
+        int color = map[row][col];
 
         for (int r = row, rLen = row + n; r < rLen; r++) {
             for (int c = col, cLen = col + n; c < cLen; c++) {
-                if (map[r][c] != num) return false;
+                if (map[r][c] != color) return false;
             }
         }
 
