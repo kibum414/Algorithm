@@ -1,6 +1,4 @@
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.util.StringTokenizer;
 
 public class Main {
@@ -12,8 +10,8 @@ public class Main {
     public static void main(String[] args) throws IOException {
 
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         StringTokenizer st;
-        StringBuilder sb = new StringBuilder();
 
         N = Integer.parseInt(br.readLine());
         map = new int[N][N];
@@ -29,10 +27,10 @@ public class Main {
         divide(0, 0, N);
 
         for (int i = 0; i < 3; i++) {
-            sb.append(cnt[i]).append("\n");
+            bw.write(cnt[i] + "\n");
         }
 
-        System.out.println(sb);
+        bw.flush();
 
     }
 
