@@ -46,7 +46,9 @@ public class Main {
             bw.write(now + " ");
 
             for (int next : arr[now]) {
-                if (--indegree[next] == 0) q.offer(next);
+                indegree[next]--;
+                
+                if (indegree[next] == 0) q.offer(next);
             }
         }
 
