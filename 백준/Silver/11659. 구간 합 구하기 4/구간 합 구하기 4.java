@@ -4,7 +4,7 @@ import java.util.StringTokenizer;
 public class Main {
 
     static int N, M;
-    static int[] arr, sum;
+    static int[] arr;
 
     public static void main(String[] args) throws IOException {
 
@@ -15,13 +15,11 @@ public class Main {
         N = Integer.parseInt(st.nextToken());
         M = Integer.parseInt(st.nextToken());
         arr = new int[N + 1];
-        sum = new int[N + 1];
 
         st = new StringTokenizer(br.readLine());
 
         for (int i = 1; i <= N; i++) {
-            arr[i] = Integer.parseInt(st.nextToken());
-            sum[i] = sum[i - 1] + arr[i];
+            arr[i] = arr[i - 1] + Integer.parseInt(st.nextToken());
         }
 
         for (int i = 0; i < M; i++) {
@@ -30,7 +28,7 @@ public class Main {
             int start = Integer.parseInt(st.nextToken()) - 1;
             int end = Integer.parseInt(st.nextToken());
 
-            bw.write((sum[end] - sum[start]) + "\n");
+            bw.write((arr[end] - arr[start]) + "\n");
         }
 
         bw.flush();
