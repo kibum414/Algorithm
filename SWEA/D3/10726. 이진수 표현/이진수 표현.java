@@ -19,17 +19,11 @@ public class Solution {
 
             N = Integer.parseInt(st.nextToken());
             M = Integer.parseInt(st.nextToken());
-            answer = "ON";
 
-            for (int i = 0; i < N; i++) {
-                if (M % 2 == 0) {
-                    answer = "OFF";
+            int toBinary = (1 << N) - 1;
 
-                    break;
-                }
-
-                M /= 2;
-            }
+            if ((M & toBinary) == toBinary) answer = "ON";
+            else answer = "OFF";
 
             sb.append("#").append(t).append(" ").append(answer).append("\n");
         }
