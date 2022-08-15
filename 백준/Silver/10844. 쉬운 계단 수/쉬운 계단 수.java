@@ -16,10 +16,6 @@ public class Main {
         N = Integer.parseInt(br.readLine());
         dp = new Long[N + 1][10];
 
-        for (int i = 0; i < 10; i++) {
-            dp[1][i] = 1L;
-        }
-
         result = 0;
 
         for (int i = 1; i < 10; i++) {
@@ -32,7 +28,7 @@ public class Main {
 
     private static long recursive(int n, int value) {
 
-        if (n == 1) return dp[n][value];
+        if (n == 1) return 1;
 
         if (dp[n][value] == null) {
             if (value == 0) dp[n][value] = recursive(n - 1, 1);
