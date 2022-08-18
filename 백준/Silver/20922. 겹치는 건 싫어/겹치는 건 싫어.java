@@ -28,7 +28,7 @@ public class Main {
         cnt = new int[100001];
 
         while (end < N) {
-            while (end < N && cnt[arr[end]] + 1 <= K) {
+            while (end < N && cnt[arr[end]] < K) {
                 cnt[arr[end++]]++;
             }
 
