@@ -58,24 +58,14 @@ public class Main {
 
     }
 
-    private static long calc() {
+    private static int calc() {
 
-        long teamA = 0, teamB = 0;
+        int teamA = 0, teamB = 0;
 
-        for (int i = 0; i < N - 1; i++) { // 0011
-            if ((team & (1 << i)) > 0) {
-
-                for (int j = i + 1; j < N; j++) {
-                    if ((team & (1 << j)) > 0) {
-                        teamA += S[i][j] + S[j][i];
-                    }
-                }
-            } else {
-                for (int j = i + 1; j < N; j++) {
-                    if ((team & (1 << j)) == 0) {
-                        teamB += S[i][j] + S[j][i];
-                    }
-                }
+        for (int i = 0; i < N - 1; i++) {
+            for (int j = i + 1; j < N; j++) {
+                if ((team & (1 << i)) > 0 && (team & (1 << j)) > 0) teamA += S[i][j] + S[j][i];
+                else if ((team & (1 << i)) == 0 && (team & (1 << j)) == 0) teamB += S[i][j] + S[j][i];
             }
         }
 
