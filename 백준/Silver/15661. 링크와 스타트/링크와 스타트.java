@@ -48,7 +48,11 @@ public class Main {
 
         for (int i = start; i < N; i++) {
             team |= 1 << i;
+
             combination(n, cnt + 1, i + 1);
+
+            if (min == 0) return;
+
             team &= ~(1 << i);
         }
 
