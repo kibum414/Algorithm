@@ -18,9 +18,7 @@ public class Main {
             tens = cur / 10;
             units = cur % 10;
 
-            int temp = (tens + units) % 10;
-
-            cur = units * 10 + temp;
+            cur = units * 10 + (tens + units) % 10;
 
             cnt++;
         } while (N != cur);
