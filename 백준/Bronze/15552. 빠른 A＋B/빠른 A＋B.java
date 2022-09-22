@@ -1,4 +1,6 @@
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
 public class Main {
@@ -8,8 +10,8 @@ public class Main {
     public static void main(String[] args) throws IOException {
 
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         StringTokenizer st;
+        StringBuilder sb = new StringBuilder();
 
         T = Integer.parseInt(br.readLine());
 
@@ -19,11 +21,10 @@ public class Main {
             A = Integer.parseInt(st.nextToken());
             B = Integer.parseInt(st.nextToken());
 
-            bw.write(A + B + "\n");
+            sb.append(A + B).append("\n");
         }
 
-        bw.flush();
-        bw.close();
+        System.out.println(sb);
 
     }
 
