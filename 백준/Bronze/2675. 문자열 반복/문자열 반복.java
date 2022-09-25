@@ -6,7 +6,7 @@ import java.util.StringTokenizer;
 public class Main {
 
     static int T, R;
-    static String S, P;
+    static String S;
 
     public static void main(String[] args) throws IOException {
 
@@ -18,7 +18,6 @@ public class Main {
 
         for (int t = 0; t < T; t++) {
             st = new StringTokenizer(br.readLine());
-            P = "";
 
             R = Integer.parseInt(st.nextToken());
             S = st.nextToken();
@@ -27,11 +26,11 @@ public class Main {
                 char c = S.charAt(i);
 
                 for (int j = 0; j < R; j++) {
-                    P += c;
+                    sb.append(c);
                 }
             }
 
-            sb.append(P).append("\n");
+            sb.append("\n");
         }
 
         System.out.println(sb);
