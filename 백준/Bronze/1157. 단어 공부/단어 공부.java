@@ -15,8 +15,10 @@ public class Main {
         arr = new int[26];
 
         for (int i = 0, len = word.length(); i < len; i++) {
-            if ('a' <= word.charAt(i) && word.charAt(i) <= 'z') arr[word.charAt(i) - 'a']++;
-            else if ('A' <= word.charAt(i) && word.charAt(i) <= 'Z') arr[word.charAt(i) - 'A']++;
+            char ch = word.charAt(i);
+
+            if ('A' <= ch && ch <= 'Z') arr[ch - 'A']++;
+            else if ('a' <= ch && ch <= 'z') arr[ch - 'a']++;
         }
 
         int max = Integer.MIN_VALUE;
@@ -26,8 +28,7 @@ public class Main {
             if (max < arr[i]) {
                 max = arr[i];
                 ch = (char) ('A' + i);
-            }
-            else if (max == arr[i]) ch = '?';
+            } else if (max == arr[i]) ch = '?';
         }
 
         System.out.println(ch);
