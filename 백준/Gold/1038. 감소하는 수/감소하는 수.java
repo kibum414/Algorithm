@@ -19,25 +19,22 @@ public class Main {
         if (N <= 10) System.out.println(N);
         else if (N > 1022) System.out.println(-1);
         else {
-            for (int i = 0; i < 10; i++) {
-                decrease(i, 1);
+            for (int i = 1; i <= 1023; i++) {
+                long num = 0;
+                int tmp = i;
+
+                for (int idx = 9; idx >= 0; idx--) {
+                    if (tmp % 2 == 1) num = 10 * num + idx;
+
+                    tmp /= 2;
+                }
+
+                list.add(num);
             }
 
             Collections.sort(list);
 
             System.out.println(list.get(N));
-        }
-
-    }
-
-    private static void decrease(long n, int idx) {
-
-        if (idx > 10) return;
-
-        list.add(n);
-
-        for (int i = 0, len = (int) (n % 10); i < len; i++) {
-            decrease((n * 10) + i, idx + 1);
         }
 
     }
