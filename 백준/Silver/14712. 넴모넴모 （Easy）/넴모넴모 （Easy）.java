@@ -40,7 +40,6 @@ public class Main {
         else {
             map[r][c] = true;
             dfs(n + 1);
-
             map[r][c] = false;
             dfs(n + 1);
         }
