@@ -5,6 +5,7 @@ import java.io.InputStreamReader;
 public class Main {
 
     static int N, n;
+    static double sqrt;
 
     public static void main(String[] args) throws IOException {
 
@@ -13,14 +14,17 @@ public class Main {
 
         N = Integer.parseInt(br.readLine());
         n = 2;
+        sqrt = Math.sqrt(N);
 
-        while (n <= N) {
+        while (n <= sqrt) {
             if (N % n == 0) {
                 sb.append(n).append("\n");
 
                 N /= n;
             } else n++;
         }
+
+        if (N != 1) sb.append(N).append("\n");
 
         System.out.println(sb);
 
