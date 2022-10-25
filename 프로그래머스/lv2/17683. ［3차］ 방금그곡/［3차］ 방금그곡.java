@@ -5,6 +5,7 @@ class Solution {
         String answer = "(None)";
         m = changeMelody(m);
         int maxPlayTime = -1;
+        StringBuilder sb;
 
         for (String musicinfo : musicinfos) {
             String[] info = musicinfo.split(",");
@@ -17,7 +18,7 @@ class Solution {
 
             // 재생 시간 > 음악 길이
             if (playTime > melodyLen) {
-                StringBuilder sb = new StringBuilder();
+                sb = new StringBuilder();
 
                 // 반복된 횟수(몫)만큼 멜로디 추가
                 for (int i = 0, len = playTime / melodyLen; i < len; i++) {
