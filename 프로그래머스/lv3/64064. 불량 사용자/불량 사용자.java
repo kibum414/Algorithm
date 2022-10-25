@@ -29,7 +29,6 @@ class Solution {
         for (String userId : userIds) {
             if (set.add(userId)) {
                 dfs(set);
-
                 set.remove(userId);
             }
         }
