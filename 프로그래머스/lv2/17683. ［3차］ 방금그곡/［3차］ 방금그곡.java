@@ -28,6 +28,7 @@ class Solution {
                 // 남은 시간(나머지)만큼 멜로디 추가
                 sb.append(melody.substring(0, playTime % melodyLen));
 
+                // 재생된 멜로디
                 melody = sb.toString();
             // 재생 시간 <= 음악 길이 일 때는 처음부터 재생 시간만큼만 멜로디 추가
             } else melody = melody.substring(0, playTime);
