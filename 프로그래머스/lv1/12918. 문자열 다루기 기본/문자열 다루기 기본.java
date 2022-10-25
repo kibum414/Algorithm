@@ -2,11 +2,11 @@ class Solution {
 
     public boolean solution(String s) {
 
-        int len = s.length();
+        int l = s.length();
 
-        if (len != 4 && len != 6) return false;
+        if (l != 4 && l != 6) return false;
 
-        for (int i = 0; i < len; i++) {
+        for (int i = 0; i < l; i++) {
             char c = s.charAt(i);
 
             if (c < '0' || c > '9') return false;
