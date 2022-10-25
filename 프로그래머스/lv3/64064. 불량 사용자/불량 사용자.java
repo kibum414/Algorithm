@@ -45,7 +45,7 @@ class Solution {
 
             if (userId.length() != bannedId.length()) return false;
 
-            for (int i = 0, len = bannedId.length(); i < len; i++) {
+            for (int i = 0, len = userId.length(); i < len; i++) {
                 if (bannedId.charAt(i) == '*') continue;
 
                 if (userId.charAt(i) != bannedId.charAt(i)) return false;
