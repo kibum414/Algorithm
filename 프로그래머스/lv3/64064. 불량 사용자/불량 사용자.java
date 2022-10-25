@@ -10,6 +10,7 @@ class Solution {
 
         userIds = user_id;
         bannedIds = banned_id;
+
         bLen = bannedIds.length;
 
         dfs(new LinkedHashSet<>());
