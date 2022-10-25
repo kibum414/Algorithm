@@ -2,13 +2,12 @@ import java.util.*;
 
 class Solution {
 
-    static Set<Set<String>> answer;
+    static Set<Set<String>> answer = new HashSet<>();
     static String[] userIds, bannedIds;
     static int bLen;
 
     public int solution(String[] user_id, String[] banned_id) {
 
-        answer = new HashSet<>();
         userIds = user_id;
         bannedIds = banned_id;
         bLen = bannedIds.length;
