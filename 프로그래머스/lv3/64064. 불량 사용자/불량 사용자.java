@@ -3,15 +3,15 @@ import java.util.*;
 class Solution {
 
     static Set<Set<String>> answer;
-    static String[] user, banned;
+    static String[] userIds, bannedIds;
     static int bLen;
 
     public int solution(String[] user_id, String[] banned_id) {
 
         answer = new HashSet<>();
-        user = user_id;
-        banned = banned_id;
-        bLen = banned.length;
+        userIds = user_id;
+        bannedIds = banned_id;
+        bLen = bannedIds.length;
 
         dfs(new LinkedHashSet<>());
 
@@ -27,7 +27,7 @@ class Solution {
             return;
         }
 
-        for (String userId : user) {
+        for (String userId : userIds) {
             if (set.add(userId)) {
                 dfs(set);
                 set.remove(userId);
@@ -41,7 +41,7 @@ class Solution {
         int idx = 0;
 
         for (String userId : set) {
-            String bannedId = banned[idx++];
+            String bannedId = bannedIds[idx++];
 
             if (userId.length() != bannedId.length()) return false;
 
