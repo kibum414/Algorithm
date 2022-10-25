@@ -24,7 +24,7 @@ class Solution {
                     sb.append(melody);
                 }
 
-                // 남은 시간만큼 멜로디 추가
+                // 남은 시간(나머지)만큼 멜로디 추가
                 sb.append(melody.substring(0, playTime % melodyLen));
 
                 melody = sb.toString();
