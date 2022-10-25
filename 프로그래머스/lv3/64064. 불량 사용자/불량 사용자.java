@@ -22,7 +22,7 @@ class Solution {
     private static void dfs(Set<String> set) {
 
         if (set.size() == bLen) {
-            if (isBanned(set)) answer.add(new HashSet<>(set));
+            if (isBannedId(set)) answer.add(new HashSet<>(set));
 
             return;
         }
@@ -36,7 +36,7 @@ class Solution {
 
     }
 
-    private static boolean isBanned(Set<String> set) {
+    private static boolean isBannedId(Set<String> set) {
 
         int idx = 0;
 
