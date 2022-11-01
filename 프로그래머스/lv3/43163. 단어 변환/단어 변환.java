@@ -22,7 +22,7 @@ class Solution {
 
     private static void dfs(String begin, String target, int cnt) {
 
-        // 단어가 target 과 같아졌을 때 횟수 저장
+        // 단어가 target 과 같아졌을 때 횟수의 최솟값 저장
         if (begin.equals(target)) {
             answer = Math.min(answer, cnt);
 
