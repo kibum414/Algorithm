@@ -12,8 +12,8 @@ class Solution {
             map.put(genres[i], map.getOrDefault(genres[i], 0) + plays[i]);
         }
 
-        // 재생횟수 내림차순으로 장르 정렬
         List<String> genreList = new ArrayList<>(map.keySet());
+        // 재생횟수 내림차순으로 장르 정렬
         Collections.sort(genreList, (s1, s2) -> map.get(s2) - map.get(s1));
 
         List<Integer> idxList = new ArrayList<>();
