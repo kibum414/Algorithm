@@ -30,11 +30,11 @@ class Solution {
         }
 
         for (int i = 0; i < len; i++) {
-            // 변환한 적 없으면서 알파벳이 하나만 다른 경우
+            // 변환된 적 없으면서 알파벳이 하나만 다른 경우
             if (!visit[i] && check(begin, W[i])) {
                 // 찾은 단어 표시
                 visit[i] = true;
-                // cnt 증가시키면서 다음 단계로
+                // cnt 증가시키면서 다음 단계로 이동
                 dfs(W[i], target, cnt + 1);
                 // 완전 탐색을 위해 표시 제거
                 visit[i] = false;
