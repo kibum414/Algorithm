@@ -26,7 +26,7 @@ class Solution {
             // 가장 많이 재생된 노래의 고유 번호
             int firstIdx = -1;
 
-            // 가장 많이 재생된 노래 고유 번호 찾기
+            // 가장 많이 재생된 노래의 고유 번호 찾기
             for (int j = 0; j < len; j++) {
                 if (genre.equals(genres[j]) && max < plays[j]) {
                     max = plays[j];
@@ -38,7 +38,7 @@ class Solution {
             // 두 번째로 많이 재생된 노래의 고유 번호
             int secondIdx = -1;
 
-            // 두 번째로 많이 재생된 노래 고유 번호 찾기
+            // 두 번째로 많이 재생된 노래의 고유 번호 찾기
             for (int j = 0; j < len; j++) {
                 if (genre.equals(genres[j]) && max < plays[j] && j != firstIdx) {
                     max = plays[j];
