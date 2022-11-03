@@ -21,8 +21,8 @@ public class Main {
             B = Integer.parseInt(st.nextToken());
 
             while (A != B) {
-                if (A > B) A /= 2;
-                else B /= 2;
+                if (A > B) A >>= 1;
+                else B >>= 1;
             }
 
             sb.append(A * 10).append("\n");
