@@ -26,7 +26,7 @@ public class Main {
                 if (visit[j]) answer = j;
             }
 
-            if (answer == 0) visit[n] = true;
+            visit[n] = true;
 
             sb.append(answer).append("\n");
         }
