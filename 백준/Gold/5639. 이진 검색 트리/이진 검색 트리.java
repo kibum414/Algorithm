@@ -17,6 +17,7 @@ public class Main {
         }
 
         void insert(int n) {
+
             if (n < this.root) {
                 if (this.left == null) this.left = new Node(n);
                 else this.left.insert(n);
@@ -24,15 +25,17 @@ public class Main {
                 if (this.right == null) this.right = new Node(n);
                 else this.right.insert(n);
             }
+
         }
+
     }
 
     public static void main(String[] args) throws IOException {
 
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-        String input;
         Node R = new Node(Integer.parseInt(br.readLine()));
+        String input;
 
         while ((input = br.readLine()) != null && input.length() != 0) {
             R.insert(Integer.parseInt(input));
