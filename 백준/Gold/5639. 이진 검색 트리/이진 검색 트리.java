@@ -46,12 +46,12 @@ public class Main {
 
     private static void postOrder(Node node) {
 
-        if (node != null) {
-            postOrder(node.left);
-            postOrder(node.right);
+        if (node == null) return;
 
-            sb.append(node.root).append("\n");
-        }
+        postOrder(node.left);
+        postOrder(node.right);
+
+        sb.append(node.root).append("\n");
 
     }
 
