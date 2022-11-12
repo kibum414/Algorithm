@@ -7,27 +7,23 @@ import java.util.StringTokenizer;
 
 public class Main {
 
-    static int N;
-    static int[] arr;
-    static List<Integer> list;
-
     public static void main(String[] args) throws IOException {
 
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringBuilder sb = new StringBuilder();
 
-        N = Integer.parseInt(br.readLine());
-        arr = new int[N + 1];
-        list = new ArrayList<>();
+        int N = Integer.parseInt(br.readLine());
+        int[] arr = new int[N];
+        List<Integer> list = new ArrayList<>();
 
         StringTokenizer st = new StringTokenizer(br.readLine());
 
-        for (int i = 1; i <= N; i++) {
+        for (int i = 0; i < N; i++) {
             arr[i] = Integer.parseInt(st.nextToken());
         }
 
-        for (int i = N; i > 0; i--) {
-            list.add(arr[i], i);
+        for (int i = N - 1; i >= 0; i--) {
+            list.add(arr[i], i + 1);
         }
 
         for (int n : list) {
