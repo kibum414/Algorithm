@@ -5,8 +5,8 @@ import java.util.StringTokenizer;
 
 public class Main {
 
-    static int N, M, B, min, max, minTime, height;
-    static int[][] map;
+    static int N, M, B, minH, maxH, minTime, height;
+    static int[] heights;
 
     public static void main(String[] args) throws IOException {
 
@@ -16,44 +16,45 @@ public class Main {
         N = Integer.parseInt(st.nextToken());
         M = Integer.parseInt(st.nextToken());
         B = Integer.parseInt(st.nextToken());
-        map = new int[N][M];
-        min = 256;
-        max = 0;
+        heights = new int[257];
+        minH = 256;
+        maxH = 0;
+        minTime = Integer.MAX_VALUE;
+        height = 0;
 
         for (int i = 0; i < N; i++) {
             st = new StringTokenizer(br.readLine());
 
             for (int j = 0; j < M; j++) {
-                int n = Integer.parseInt(st.nextToken());
+                int h = Integer.parseInt(st.nextToken());
 
-                map[i][j] = n;
-                min = Math.min(min, n);
-                max = Math.max(max, n);
+                heights[h]++;
+                minH = Math.min(minH, h);
+                maxH = Math.max(maxH, h);
             }
         }
 
-        minTime = Integer.MAX_VALUE;
-        height = 0;
-
-        for (int h = min; h <= max; h++) {
+        for (int h = minH; h <= maxH; h++) {
             int block = B;
             int time = 0;
 
-            for (int i = 0; i < N; i++) {
-                for (int j = 0; j < M; j++) {
-                    int n = map[i][j];
+            for (int i = 0; i <= 256; i++) {
+                if (heights[i] == 0 || h == i) continue;
 
-                    if (n > h) {
-                        block += n - h;
-                        time += (n - h) * 2;
-                    } else if (n < h) {
-                        block -= h - n;
-                        time += h - n;
-                    }
+                int diff = Math.abs(h - i) * heights[i];
+
+                if (h < i) {
+                    time += 2 * diff;
+                    block += diff;
+                } else {
+                    time += diff;
+                    block -= diff;
                 }
             }
 
-            if (block >= 0 && minTime >= time) {
+            if (block < 0) continue;
+
+            if (minTime >= time) {
                 minTime = time;
                 height = h;
             }
