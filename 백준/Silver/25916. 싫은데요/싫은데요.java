@@ -30,7 +30,9 @@ public class Main {
             return;
         }
 
-        int start = 0, end = 0, sum = 0, max = 0;
+        int start = 0, end = 1, sum = 0, max = 0;
+
+        if (A[start] <= M) sum += A[start];
 
         while (start <= end && end < N) {
             if (sum + A[end] <= M) {
