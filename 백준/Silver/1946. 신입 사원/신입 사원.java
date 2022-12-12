@@ -28,11 +28,11 @@ public class Main {
 
             int cnt = 1, min = arr[1];
 
-            for (int i = 1; i <= N; i++) {
-                if (arr[i] < min) {
-                    cnt++;
-                    min = arr[i];
-                }
+            for (int i = 2; i <= N; i++) {
+                if (arr[i] > min) continue;
+
+                min = arr[i];
+                cnt++;
             }
 
             sb.append(cnt).append("\n");
