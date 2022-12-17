@@ -8,14 +8,14 @@ class Solution {
         HashMap<Character, Integer> map = new HashMap<>();
 
         for (int i = 0, len = survey.length; i < len; i++) {
-            char c1 = survey[i].charAt(0);
-            char c2 = survey[i].charAt(1);
+            char t1 = survey[i].charAt(0);
+            char t2 = survey[i].charAt(1);
             int choice = choices[i] - 4;
 
             if (choice == 0) continue;
 
-            if (choice < 0) map.put(c1, map.getOrDefault(c1, 0) - choice);
-            else map.put(c2, map.getOrDefault(c2, 0) + choice);
+            if (choice < 0) map.put(t1, map.getOrDefault(t1, 0) - choice);
+            else map.put(t2, map.getOrDefault(t2, 0) + choice);
         }
 
         if (map.getOrDefault('R', 0) >= map.getOrDefault('T', 0)) sb.append('R');
