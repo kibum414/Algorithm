@@ -8,43 +8,41 @@ class Solution {
         Queue<Integer> q2 = new ArrayDeque<>();
 
         int len = queue1.length;
-        long sum1 = 0, sum2 = 0;
+        long s1 = 0, s2 = 0;
 
         for (int i = 0; i < len; i++) {
             int n1 = queue1[i], n2 = queue2[i];
 
             q1.add(n1);
-            sum1 += n1;
+            s1 += n1;
 
             q2.add(n2);
-            sum2 += n2;
+            s2 += n2;
         }
 
-        if ((sum1 + sum2) % 2 != 0) return -1;
+        if ((s1 + s2) % 2 != 0) return -1;
 
-        int answer = 0;
+        int cnt = 0, n = 0;
 
-        while (sum1 != sum2) {
-            if (sum1 > sum2) {
-                int n = q1.poll();
+        while (s1 != s2) {
+            if (s1 > s2) {
+                n = q1.poll();
                 
                 q2.add(n);
-                sum1 -= n;
-                sum2 += n;
+                s1 -= n;
+                s2 += n;
             } else {
-                int n = q2.poll();
+                n = q2.poll();
                 
                 q1.add(n);
-                sum1 += n;
-                sum2 -= n;
+                s1 += n;
+                s2 -= n;
             }
 
-            answer++;
-
-            if (answer > len * 3) return -1;
+            if (++cnt > len * 3) return -1;
         }
 
-        return answer;
+        return cnt;
 
     }
 
