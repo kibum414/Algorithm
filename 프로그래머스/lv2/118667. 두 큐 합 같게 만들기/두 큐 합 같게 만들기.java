@@ -20,19 +20,19 @@ class Solution {
             sum2 += n2;
         }
 
-        if ((sum1 + sum2) % 2 == 1) return -1;
+        if ((sum1 + sum2) % 2 != 0) return -1;
 
-        int answer = 0;
+        int answer = 0, n = 0;
 
         while (sum1 != sum2) {
             if (sum1 > sum2) {
-                int n = q1.poll();
+                n = q1.poll();
                 
                 q2.add(n);
                 sum1 -= n;
                 sum2 += n;
             } else {
-                int n = q2.poll();
+                n = q2.poll();
                 
                 q1.add(n);
                 sum1 += n;
