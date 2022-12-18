@@ -22,17 +22,17 @@ class Solution {
 
         if ((sum1 + sum2) % 2 != 0) return -1;
 
-        int answer = 0, n = 0;
+        int answer = 0;
 
         while (sum1 != sum2) {
             if (sum1 > sum2) {
-                n = q1.poll();
+                int n = q1.poll();
                 
                 q2.add(n);
                 sum1 -= n;
                 sum2 += n;
             } else {
-                n = q2.poll();
+                int n = q2.poll();
                 
                 q1.add(n);
                 sum1 += n;
