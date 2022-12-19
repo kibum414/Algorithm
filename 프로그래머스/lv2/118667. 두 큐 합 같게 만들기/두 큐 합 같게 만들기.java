@@ -21,7 +21,7 @@ class Solution {
 
         if ((sum1 + sum2) % 2 != 0) return -1;
 
-        int answer = 0, idx1 = 0, idx2 = len;
+        int cnt = 0, idx1 = 0, idx2 = len;
 
         while (sum1 != sum2) {
             if (sum1 > sum2) {
@@ -36,12 +36,12 @@ class Solution {
                 idx2++;
             }
 
-            answer++;
+            cnt++;
 
             if (idx1 >= size || idx2 >= size) return -1;
         }
 
-        return answer;
+        return cnt;
 
     }
 
