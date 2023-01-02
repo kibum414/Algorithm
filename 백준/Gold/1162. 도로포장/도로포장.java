@@ -69,14 +69,18 @@ public class Main {
             if (w > dp[e][c]) continue;
 
             for (Node next : list[e]) {
-                if (c < K && dp[next.edge][c + 1] > dp[e][c]) {
-                    dp[next.edge][c + 1] = dp[e][c];
-                    pq.add(new Node(next.edge, dp[next.edge][c + 1], c + 1));
+                // 도로 포장
+                if (c < K && dp[next.edge][c + 1] > w) {
+                    dp[next.edge][c + 1] = w;
+                    pq.add(new Node(next.edge, w, c + 1));
                 }
 
-                if (dp[next.edge][c] > dp[e][c] + next.weight) {
-                    dp[next.edge][c] = dp[e][c] + next.weight;
-                    pq.add(new Node(next.edge, dp[next.edge][c], c));
+                long nw = w + next.weight;
+
+                // 도로 포장 X
+                if (dp[next.edge][c] > nw) {
+                    dp[next.edge][c] = nw;
+                    pq.add(new Node(next.edge, nw, c));
                 }
             }
         }
