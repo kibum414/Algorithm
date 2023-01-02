@@ -12,8 +12,10 @@ class Solution {
         int e, w;
 
         private Node(int e, int w) {
+
             this.e = e;
             this.w = w;
+
         }
 
     }
