@@ -9,21 +9,11 @@ public class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
         int X = Integer.parseInt(br.readLine());
-        int stick = 64;
         int cnt = 0;
 
-        if (X == stick) {
-            System.out.println(1);
-
-            return;
-        }
-
         while (X > 0) {
-            if (stick > X) stick /= 2;
-            else {
-                X -= stick;
-                cnt++;
-            }
+            cnt += X % 2;
+            X /= 2;
         }
 
         System.out.println(cnt);
