@@ -8,12 +8,11 @@ public class Main {
 
     static int N;
     static int[] tree;
-    static StringBuilder sb;
+    static StringBuilder sb = new StringBuilder();
 
     public static void main(String[] args) throws IOException {
 
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        sb = new StringBuilder();
 
         N = Integer.parseInt(br.readLine());
         tree = new int[N];
@@ -32,13 +31,13 @@ public class Main {
 
         Arrays.sort(tree);
 
-        dfs(0, N);
+        postOrder(0, N);
 
         System.out.println(sb);
 
     }
 
-    private static void dfs(int start, int len) {
+    private static void postOrder(int start, int len) {
 
         if (len == 1) {
             sb.append(tree[start]).append(" ");
@@ -48,8 +47,8 @@ public class Main {
 
         int half = len / 2;
 
-        dfs(start, half);
-        dfs(start + half + 1, half);
+        postOrder(start, half);
+        postOrder(start + half + 1, half);
 
         sb.append(tree[start + half]).append(" ");
 
