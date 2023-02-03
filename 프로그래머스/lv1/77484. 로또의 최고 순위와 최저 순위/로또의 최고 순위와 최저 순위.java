@@ -1,29 +1,27 @@
-import java.util.*;
-
 class Solution {
 
-    public int[] solution(int[] lottos, int[] win_nums) {
+     public int[] solution(int[] lottos, int[] win_nums) {
 
-        Map<Integer, Boolean> map = new HashMap<>();
-        int zeroCnt = 0, sameCnt = 0;
+         int zeroCnt = 0, sameCnt = 0;
 
-        for (int lotto : lottos) {
-            if (lotto == 0) {
-                zeroCnt++;
-                continue;
-            }
-            
-            map.put(lotto, true);
-        }
+         for (int lotto : lottos) {
+             if (lotto == 0) {
+                 zeroCnt++;
+                 continue;
+             }
 
-        for (int win_num : win_nums) {
-            if (map.containsKey(win_num)) sameCnt++;
-        }
+             for (int win_num : win_nums) {
+                 if (lotto == win_num) {
+                     sameCnt++;
+                     break;
+                 }
+             }
+         }
 
-        int temp = 7 - sameCnt;
+         int cnt = 7 - sameCnt;
 
-        return new int[]{Math.min(temp - zeroCnt, 6), Math.min(temp, 6)};
+         return new int[]{Math.min(6, cnt - zeroCnt), Math.min(6, cnt)};
 
-    }
+     }
 
-}
+ }
