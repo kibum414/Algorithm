@@ -1,8 +1,11 @@
+import java.util.*;
+
 class Solution {
 
     public int[] solution(int[] lottos, int[] win_nums) {
 
-        int zeroCnt = 0, cnt = 0;
+        Map<Integer, Boolean> map = new HashMap<>();
+        int zeroCnt = 0, sameCnt = 0;
 
         for (int lotto : lottos) {
             if (lotto == 0) {
@@ -10,15 +13,14 @@ class Solution {
                 continue;
             }
             
-            for (int win_num : win_nums) {
-                if (lotto == win_num) {
-                    cnt++;
-                    break;
-                }
-            }
+            map.put(lotto, true);
         }
 
-        return new int[]{Math.min(7 - (zeroCnt + cnt), 6), Math.min((7 - cnt), 6)};
+        for (int win_num : win_nums) {
+            if (map.containsKey(win_num)) sameCnt++;
+        }
+
+        return new int[]{Math.min(7 - (zeroCnt + sameCnt), 6), Math.min((7 - sameCnt), 6)};
 
     }
 
