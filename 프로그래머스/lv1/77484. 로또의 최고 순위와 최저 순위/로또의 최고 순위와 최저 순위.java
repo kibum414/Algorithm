@@ -20,7 +20,9 @@ class Solution {
             if (map.containsKey(win_num)) sameCnt++;
         }
 
-        return new int[]{Math.min(7 - (zeroCnt + sameCnt), 6), Math.min((7 - sameCnt), 6)};
+        int temp = 7 - sameCnt;
+
+        return new int[]{Math.min(temp - zeroCnt, 6), Math.min(temp, 6)};
 
     }
 
