@@ -5,7 +5,7 @@ import java.io.InputStreamReader;
 public class Main {
 
     static int N;
-    static int arr[];
+    static int[] arr;
 
     public static void main(String[] args) throws IOException {
 
