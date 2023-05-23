@@ -4,35 +4,43 @@ import java.io.InputStreamReader;
 
 public class Main {
 
-	public static void main(String[] args) throws IOException {
+    static char[] chars;
 
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		char[] chars = br.readLine().toCharArray();
-		StringBuilder sb = new StringBuilder();
+    public static void main(String[] args) throws IOException {
 
-		int i = 0;
-		while (i < chars.length) {
-			if (chars[i] == '<') {
-				while (chars[i] != '>') i++;
-				i++;
-			} else if (chars[i] != ' ') {
-				int start = i;
-				while (i < chars.length && chars[i] != '<' && chars[i] != ' ') i++;
-				int end = i - 1;
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringBuilder sb = new StringBuilder();
 
-				while (start < end) wordFlip(chars, start++, end--);
-			} else if (chars[i] == ' ') i++;
-		}
+        chars = br.readLine().toCharArray();
 
-		for (char c : chars) sb.append(c);
-		System.out.println(sb);
+        for (int i = 0, len = chars.length; i < len;) {
+            char c = chars[i];
 
-	}
+            if (c == '<') {
+                while (chars[i] != '>') i++;
+                i++;
+            } else if (c == ' ') i++;
+            else {
+                int start = i;
+                while (i < len && chars[i] != '<' && chars[i] != ' ') i++;
+                int end = i - 1;
 
-	private static void wordFlip(char[] chars, int i, int j) {
-		char temp = chars[i];
-		chars[i] = chars[j];
-		chars[j] = temp;
-	}
+                while (start < end) swap(start++, end--);
+            }
+        }
+
+        for (char c : chars) sb.append(c);
+
+        System.out.println(sb);
+
+    }
+
+    private static void swap(int a, int b) {
+
+        char temp = chars[a];
+        chars[a] = chars[b];
+        chars[b] = temp;
+
+    }
 
 }
